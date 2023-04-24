@@ -24,6 +24,7 @@
     "jquery": "^3.2.1"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.16",
     "rollup": "^0.42.0",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.0.2",
