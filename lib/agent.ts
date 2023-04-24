@@ -184,9 +184,14 @@ export default class Agent {
    *
    * @param {String} text
    */
-  speak(text, hold) {
+  speak(text, hold, externalComplete) {
     this._addToQueue(function (complete) {
-      this._balloon.speak(complete, text, hold);
+      // I strongly suspect arg is never used, but shru
+      const wrappedComplete = (arg) => {
+        externalComplete?.();
+        return complete(arg);
+      };
+      this._balloon.speak(wrappedComplete, text, hold);
     }, this);
   }
 
